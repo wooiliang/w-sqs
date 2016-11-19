@@ -1,0 +1,27 @@
+{
+  "name": "node-es6",
+  "version": "1.0.0",
+  "description": "Bootstrap for Nodejs with ES6 compilation.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./build/index.js",
+    "build": "babel src -w -d ./build/",
+    "local": "npm run build | nodemon -r dotenv/config ./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wooiliang/node-es6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wooiliang/node-es6/issues"
+  },
+  "homepage": "https://github.com/wooiliang/node-es6#readme",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "dotenv": "^2.0.0",
+    "nodemon": "^1.11.0"
+  }
+}
