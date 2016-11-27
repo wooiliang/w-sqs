@@ -1,27 +1,30 @@
 {
-  "name": "node-es6",
+  "name": "w-dynamodb",
   "version": "1.0.0",
-  "description": "Bootstrap for Nodejs with ES6 compilation.",
+  "description": "Easier way to connect to DynamoDB.",
   "main": "index.js",
   "scripts": {
     "start": "node ./build/index.js",
-    "build": "babel src -w -d ./build/",
-    "local": "npm run build | nodemon -r dotenv/config ./build/index.js"
+    "build": "babel src -w -d ./",
+    "local": "npm run build | nodemon ./build/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wooiliang/node-es6.git"
+    "url": "git+https://github.com/wooiliang/w-dynamodb.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wooiliang/node-es6/issues"
+    "url": "https://github.com/wooiliang/w-dynamodb/issues"
   },
-  "homepage": "https://github.com/wooiliang/node-es6#readme",
+  "homepage": "https://github.com/wooiliang/w-dynamodb#readme",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
-    "dotenv": "^2.0.0",
     "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.7.7",
+    "shortid": "^2.2.6"
   }
 }

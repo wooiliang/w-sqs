@@ -1,2 +1,0 @@
-# since all the source files were compiled by babel, can exclude src from docker
-src

@@ -1,2 +1,2 @@
-# node-es6
-Bootstrap for Nodejs with ES6 compilation.
+# w-dynamodb
+Easier way to connect to DynamoDB.
