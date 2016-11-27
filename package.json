@@ -1,6 +1,6 @@
 {
   "name": "w-dynamodb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easier way to connect to DynamoDB.",
   "main": "index.js",
   "scripts": {
