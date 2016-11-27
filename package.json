@@ -1,30 +1,29 @@
 {
-  "name": "w-dynamodb",
-  "version": "1.0.1",
-  "description": "Easier way to connect to DynamoDB.",
+  "name": "w-sqs",
+  "version": "1.0.0",
+  "description": "Easier way to connect to SQS.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/index.js",
+    "start": "node ./index.js",
     "build": "babel src -w -d ./",
-    "local": "npm run build | nodemon ./build/index.js"
+    "local": "npm run build | nodemon ./index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wooiliang/w-dynamodb.git"
+    "url": "git+https://github.com/wooiliang/w-sqs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wooiliang/w-dynamodb/issues"
+    "url": "https://github.com/wooiliang/w-sqs/issues"
   },
-  "homepage": "https://github.com/wooiliang/w-dynamodb#readme",
+  "homepage": "https://github.com/wooiliang/w-sqs#readme",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.7.7",
-    "shortid": "^2.2.6"
+    "aws-sdk": "^2.7.7"
   }
 }

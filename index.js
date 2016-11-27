@@ -10,67 +10,31 @@ var _awsSdk = require('aws-sdk');
 
 var _awsSdk2 = _interopRequireDefault(_awsSdk);
 
-var _shortid = require('shortid');
-
-var _shortid2 = _interopRequireDefault(_shortid);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var WDynamoDB = function () {
-  function WDynamoDB(awsDefaultRegion) {
-    _classCallCheck(this, WDynamoDB);
+var WSQS = function () {
+  function WSQS(awsDefaultRegion) {
+    _classCallCheck(this, WSQS);
 
     _awsSdk2.default.config.update({
-      region: awsDefaultRegion,
-      endpoint: 'https://dynamodb.' + awsDefaultRegion + '.amazonaws.com'
+      region: awsDefaultRegion
     });
 
-    this.docClient = new _awsSdk2.default.DynamoDB.DocumentClient();
+    this.sqs = new _awsSdk2.default.SQS();
   }
 
-  _createClass(WDynamoDB, [{
-    key: 'get',
-    value: function get(params, callback) {
-      this.docClient.get(params, function (error, data) {
-        callback(error, data);
-      });
-    }
-  }, {
-    key: 'put',
-    value: function put(params, callback) {
-      var uuid = _shortid2.default.generate();
-      var now = new Date();
-      params.Item.id = uuid;
-      params.Item.createdAt = now.toISOString();
-      params.Item.updatedAt = now.toISOString();
-      this.docClient.put(params, function (error, data) {
-        if (error) {
-          callback(error);
-        } else {
-          data.id = uuid;
-          callback(null, data);
-        }
-      });
-    }
-  }, {
-    key: 'scan',
-    value: function scan(params, callback) {
-      this.docClient.scan(params, function (error, data) {
-        callback(error, data);
-      });
-    }
-  }, {
-    key: 'remove',
-    value: function remove(params, callback) {
-      this.docClient.delete(params, function (error, data) {
+  _createClass(WSQS, [{
+    key: 'sendMessage',
+    value: function sendMessage(params, callback) {
+      this.sqs.sendMessage(params, function (error, data) {
         callback(error, data);
       });
     }
   }]);
 
-  return WDynamoDB;
+  return WSQS;
 }();
 
-exports.default = WDynamoDB;
+exports.default = WSQS;
