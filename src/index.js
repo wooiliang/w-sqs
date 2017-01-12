@@ -9,9 +9,15 @@ export default class WSQS {
     this.sqs = new AWS.SQS();
   }
 
-  sendMessage(params, callback) {
-    this.sqs.sendMessage(params, (error, data) => {
-      callback(error, data);
+  sendMessage(params) {
+    return new Promise((resolve, reject) => {
+      this.sqs.sendMessage(params, (error, data) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(data);
+        }
+      });
     });
   }
 }

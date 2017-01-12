@@ -27,9 +27,17 @@ var WSQS = function () {
 
   _createClass(WSQS, [{
     key: 'sendMessage',
-    value: function sendMessage(params, callback) {
-      this.sqs.sendMessage(params, function (error, data) {
-        callback(error, data);
+    value: function sendMessage(params) {
+      var _this = this;
+
+      return new Promise(function (resolve, reject) {
+        _this.sqs.sendMessage(params, function (error, data) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(data);
+          }
+        });
       });
     }
   }]);
